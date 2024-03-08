@@ -17,19 +17,21 @@ const SceneWrapper = ({ navigation }) => {
 
   const [rotation] = useState(new Animated.Value(0)); // Initial value for rotation: 0 degrees
   const [buttonType, setButtonType] = useState("next");
-
+  const [isAnimationFinished, setIsAnimationFinished] = useState(false);
   const rotateSquare = () => {
     rotation.setValue(0);
     Animated.timing(rotation, {
       toValue: 1, // Rotate 360 degrees
-      duration: 1000, // Animation duration in milliseconds
+      duration: 500, // Animation duration in milliseconds
       useNativeDriver: true,
-    }).start();
+    }).start(({ finished }) => {
+      setIsAnimationFinished(finished);
+    });
   };
 
   const rotateAnimation = rotation.interpolate({
     inputRange: [0, 1],
-    outputRange: buttonType === "prev" ? ["90deg", "0deg"] : ["0deg", "90deg"],
+    outputRange: buttonType === "next" ? ["90deg", "0deg"] : ["0deg", "90deg"],
   });
 
   const onSceneChange = (type) => {
@@ -67,7 +69,6 @@ const SceneWrapper = ({ navigation }) => {
       </View>
       <View className="flex-1 flex-row justify-between items-end relative">
         {steps[state.current].content}
-        {/* <Animated.View className="absolute -right-[50%] top-14" style={{ transform: [{ rotate: rotateAnimation }] }}> */}
         <Animated.Image
           source={
             state.current === 0
@@ -79,17 +80,18 @@ const SceneWrapper = ({ navigation }) => {
           className={`absolute -right-[50%] top-14`}
           style={{ transform: [{ rotate: rotateAnimation }] }}
         />
-        {/* </Animated.View> */}
-        <Image
-          source={
-            state.current === 0
-              ? require("../../assets/images/scene-one-image.png")
-              : state.current === 1
-              ? require("../../assets/images/scene-two-image.png")
-              : require("../../assets/images/scene-three-image.png")
-          }
-          className="absolute bottom-[30%] right-[18%]"
-        />
+        {(isAnimationFinished || state.current === 0) && (
+          <Animated.Image
+            source={
+              state.current === 0
+                ? require("../../assets/images/scene-one-image.png")
+                : state.current === 1
+                ? require("../../assets/images/scene-two-image.png")
+                : require("../../assets/images/scene-three-image.png")
+            }
+            className="absolute bottom-[30%] right-[18%]"
+          />
+        )}
       </View>
       <View className={`h-20 flex-row justify-between items-center px-3`}>
         <Image
