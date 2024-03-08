@@ -16,6 +16,7 @@ const SceneWrapper = ({ navigation }) => {
   });
 
   const [rotation] = useState(new Animated.Value(0)); // Initial value for rotation: 0 degrees
+  const [buttonType, setButtonType] = useState("next");
 
   const rotateSquare = () => {
     rotation.setValue(0);
@@ -28,10 +29,11 @@ const SceneWrapper = ({ navigation }) => {
 
   const rotateAnimation = rotation.interpolate({
     inputRange: [0, 1],
-    outputRange: ["360deg", "0deg"],
+    outputRange: buttonType === "prev" ? ["90deg", "0deg"] : ["0deg", "90deg"],
   });
 
   const onSceneChange = (type) => {
+    setButtonType(type);
     rotateSquare();
     dispatch(
       setAllAppKeys({
@@ -66,17 +68,17 @@ const SceneWrapper = ({ navigation }) => {
       <View className="flex-1 flex-row justify-between items-end relative">
         {steps[state.current].content}
         {/* <Animated.View className="absolute -right-[50%] top-14" style={{ transform: [{ rotate: rotateAnimation }] }}> */}
-          <Animated.Image
-            source={
-              state.current === 0
-                ? require("../../assets/images/scene-one-circle.png")
-                : state.current === 1
-                ? require("../../assets/images/scene-two-circle.png")
-                : require("../../assets/images/scene-three-circle.png")
-            }
-            className={`absolute -right-[50%] top-14`}
-            style={{ transform: [{ rotate: rotateAnimation }] }}
-          />
+        <Animated.Image
+          source={
+            state.current === 0
+              ? require("../../assets/images/scene-one-circle.png")
+              : state.current === 1
+              ? require("../../assets/images/scene-two-circle.png")
+              : require("../../assets/images/scene-three-circle.png")
+          }
+          className={`absolute -right-[50%] top-14`}
+          style={{ transform: [{ rotate: rotateAnimation }] }}
+        />
         {/* </Animated.View> */}
         <Image
           source={
