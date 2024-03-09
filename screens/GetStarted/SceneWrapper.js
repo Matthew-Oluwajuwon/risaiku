@@ -80,7 +80,7 @@ const SceneWrapper = ({ navigation }) => {
           className={`absolute -right-[50%] top-14`}
           style={{ transform: [{ rotate: rotateAnimation }] }}
         />
-        {(isAnimationFinished || state.current === 0) && (
+        {/* {(isAnimationFinished || state.current === 0) && (
           <Animated.Image
             source={
               state.current === 0
@@ -91,7 +91,7 @@ const SceneWrapper = ({ navigation }) => {
             }
             className="absolute bottom-[30%] right-[18%]"
           />
-        )}
+        )} */}
       </View>
       <View className={`h-20 flex-row justify-between items-center px-3`}>
         <Image
