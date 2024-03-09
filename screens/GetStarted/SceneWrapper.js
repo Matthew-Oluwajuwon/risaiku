@@ -31,7 +31,7 @@ const SceneWrapper = ({ navigation }) => {
 
   const rotateAnimation = rotation.interpolate({
     inputRange: [0, 1],
-    outputRange: buttonType === "next" ? ["90deg", "0deg"] : ["0deg", "90deg"],
+    outputRange: buttonType === "next" ? ["0deg", "360deg"] : ["360deg", "0deg"],
   });
 
   const onSceneChange = (type) => {
