@@ -1,4 +1,5 @@
-import Login from "./Login/Login";
-import Signup from "./Signup/Signup";
+import Login from "./Authentication/Login/Login";
+import Signup from "./Authentication/Signup/Signup";
+import OtpVerification from "./Authentication/OtpVerification/OtpVerification";
 
-export { Login, Signup };
+export { Login, Signup, OtpVerification };

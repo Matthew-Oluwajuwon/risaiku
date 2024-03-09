@@ -12,11 +12,11 @@ const Signup = ({ navigation }) => {
 
   return (
     <SafeAreaView className="flex-1 items-center">
-      <View className="flex-row items-center w-full justify-center my-5 relative">
+      <View className="flex-row items-center w-full justify-center my-10 relative">
         <TouchableOpacity onPress={() => navigation.goBack()} className="absolute left-3">
-          <Image source={require("../../assets/icons/back-arrow.png")} />
+          <Image source={require("../../../assets/icons/back-arrow.png")} />
         </TouchableOpacity>
-        <Image source={require("../../assets/images/colored-logo.png")} />
+        <Image source={require("../../../assets/images/colored-logo.png")} />
       </View>
       <View className="my-8">
         <Text className="text-center font-medium text-3xl">Sign up on Risaiku for free</Text>
@@ -86,7 +86,7 @@ const Signup = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}>
+        <TouchableOpacity onPress={() => onNavigate("OtpVerification")} className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}>
           <Text className="text-[#ffffff!important] text-base font-medium">Sign up</Text>
         </TouchableOpacity>
       </View>

@@ -1,12 +1,34 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import { View, Text, Image, TouchableOpacity, Animated, Easing } from "react-native";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
 const Welcome = ({ navigation }) => {
+  const [rotation] = useState(new Animated.Value(0)); // Initial value for rotation: 0 degrees
   const onNavigate = (path) => {
     navigation.navigate(path);
   };
+
+  const rotateSquare = () => {
+    rotation.setValue(0);
+    Animated.loop(
+      Animated.timing(rotation, {
+        toValue: 1, // Rotate 360 degrees
+        duration: 20000, // Animation duration in milliseconds
+        useNativeDriver: true,
+        easing: Easing.linear,
+      })
+    ).start();
+  };
+
+  const rotateAnimation = rotation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "360deg"],
+  });
+
+  useEffect(() => {
+    rotateSquare();
+  }, []);
 
   return (
     <SafeAreaView className="flex-1">
@@ -26,8 +48,8 @@ const Welcome = ({ navigation }) => {
           <Text className="text-[#007A72!important] text-base font-medium">Sign in</Text>
         </TouchableOpacity>
       </View>
-      <View className="justify-end flex-1">
-        <Image source={require("../../assets/images/welcome-image.png")} className="" />
+      <View className="justify-end flex-1 relative">
+        <Animated.Image style={{ transform: [{ rotate: rotateAnimation }] }} source={require("../../assets/images/welcome-image1.png")} className="absolute -bottom-48" />
       </View>
       <StatusBar backgroundColor="transparent" />
     </SafeAreaView>

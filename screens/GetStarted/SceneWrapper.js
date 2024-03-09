@@ -16,33 +16,46 @@ const SceneWrapper = ({ navigation }) => {
   });
 
   const [rotation] = useState(new Animated.Value(0)); // Initial value for rotation: 0 degrees
+  const [scale] = useState(new Animated.Value(1)); // Initial value for scale: 1
   const [buttonType, setButtonType] = useState("next");
-  const [isAnimationFinished, setIsAnimationFinished] = useState(false);
-  const rotateSquare = () => {
+
+  const rotateImage = () => {
     rotation.setValue(0);
     Animated.timing(rotation, {
       toValue: 1, // Rotate 360 degrees
-      duration: 500, // Animation duration in milliseconds
+      duration: 1000, // Animation duration in milliseconds
       useNativeDriver: true,
-    }).start(({ finished }) => {
-      setIsAnimationFinished(finished);
-    });
+    }).start();
+  };
+  const scaleImage = () => {
+    scale.setValue(1);
+    Animated.timing(scale, {
+      toValue: 1, // Rotate 360 degrees
+      duration: 1000, // Animation duration in milliseconds
+      useNativeDriver: true,
+    }).start();
   };
 
   const rotateAnimation = rotation.interpolate({
     inputRange: [0, 1],
-    outputRange: buttonType === "next" ? ["0deg", "360deg"] : ["360deg", "0deg"],
+    outputRange: buttonType === "prev" ? ["0deg", "180deg"] : ["180deg", "0deg"],
+  });
+
+  const imageAnimation = scale.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
   });
 
   const onSceneChange = (type) => {
     setButtonType(type);
-    rotateSquare();
     dispatch(
       setAllAppKeys({
         ...state,
         current: type?.toLowerCase() === "prev" ? state.current - 1 : state.current + 1,
       })
     );
+    scaleImage();
+    rotateImage();
   };
 
   const steps = [
@@ -61,7 +74,7 @@ const SceneWrapper = ({ navigation }) => {
     <SafeAreaView className="flex-1 bg-[#ffffff]">
       <View className={`mx-auto mt-7 px-3 flex-row justify-center  w-full relative`}>
         {state.current > 0 && (
-          <Pressable onPress={() => onSceneChange("prev")} className="absolute left-3">
+          <Pressable onPress={() => onSceneChange("prev")} className={`absolute left-3`}>
             <Image source={require("../../assets/icons/rounded-back-arrow.png")} />
           </Pressable>
         )}
@@ -69,18 +82,18 @@ const SceneWrapper = ({ navigation }) => {
       </View>
       <View className="flex-1 flex-row justify-between items-end relative">
         {steps[state.current].content}
-        <Animated.Image
-          source={
-            state.current === 0
-              ? require("../../assets/images/scene-one-circle.png")
-              : state.current === 1
-              ? require("../../assets/images/scene-two-circle.png")
-              : require("../../assets/images/scene-three-circle.png")
-          }
-          className={`absolute -right-[50%] top-14`}
-          style={{ transform: [{ rotate: rotateAnimation }] }}
-        />
-        {/* {(isAnimationFinished || state.current === 0) && (
+        <View className="flex-1 my-auto">
+          <Animated.Image
+            source={
+              state.current === 0
+                ? require("../../assets/images/circle-one.png")
+                : state.current == 1
+                ? require("../../assets/images/circle-two.png")
+                : require("../../assets/images/circle-three.png")
+            }
+            className={`absolute -right-[50%] -top-32`}
+            style={{ transform: [{ rotate: rotateAnimation }] }}
+          />
           <Animated.Image
             source={
               state.current === 0
@@ -89,9 +102,10 @@ const SceneWrapper = ({ navigation }) => {
                 ? require("../../assets/images/scene-two-image.png")
                 : require("../../assets/images/scene-three-image.png")
             }
-            className="absolute bottom-[30%] right-[18%]"
+            className="m-auto"
+            style={{ opacity: imageAnimation }}
           />
-        )} */}
+        </View>
       </View>
       <View className={`h-20 flex-row justify-between items-center px-3`}>
         <Image

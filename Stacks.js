@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SceneWrapper, Welcome } from "./screens/GetStarted";
-import { Login, Signup } from "./screens";
+import { Login, OtpVerification, Signup } from "./screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +27,13 @@ const Stacks = () => {
         <Stack.Screen
           name="Signup"
           component={Signup}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="OtpVerification"
+          component={OtpVerification}
           options={{
             headerShown: false,
           }}

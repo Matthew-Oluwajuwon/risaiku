@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "risaiku",
-    "slug": "risaiku",
+    "name": "risaiku-new",
+    "slug": "risaiku-new",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -25,6 +25,17 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "576fdc3e-212b-455f-a0bf-9ee553a7bf62"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/576fdc3e-212b-455f-a0bf-9ee553a7bf62"
     }
   }
 }
