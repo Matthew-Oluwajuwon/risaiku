@@ -4,6 +4,7 @@ import Stacks from "./Stacks";
 import { PaperProvider } from "react-native-paper";
 
 export default function App() {
+  
   return (
     <Provider store={store}>
       <PaperProvider>
