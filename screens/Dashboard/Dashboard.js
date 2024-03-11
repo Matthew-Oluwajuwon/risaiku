@@ -71,19 +71,19 @@ const Dashboard = () => {
         <View className="w-full mt-4 flex-row gap-3 flex-wrap justify-between mx-auto">
           <View className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]">
             <Image source={require("../../assets/images/yellow.png")} className="absolute right-3 top-3" />
-            <Text>Schedule a Pick up</Text>
+            <Text className="text-[#D4BA00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Pick up</Text>
           </View>
           <View className="basis-[46%] relative h-40 bg-[#E5F5CC] rounded-[25px]">
             <Image source={require("../../assets/images/green.png")} className="absolute right-3 top-3" />
-            <Text>Schedule a Drop off</Text>
+            <Text className="text-[#6AAC00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Drop off</Text>
           </View>
           <View className="basis-[46%] relative h-40 bg-[#D9ECFF] rounded-[25px]">
             <Image source={require("../../assets/images/blue.png")} className="absolute right-3 top-3" />
-            <Text>Zero waste Store</Text>
+            <Text  className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-20">Zero waste Store</Text>
           </View>
           <View className="basis-[46%] relative h-40 bg-[#FCD9CC] rounded-[25px]">
             <Image source={require("../../assets/images/red.png")} className="absolute right-3 top-3" />
-            <Text>Waste Management</Text>
+            <Text  className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-20">Waste Management</Text>
           </View>
         </View>
       </ScrollView>
