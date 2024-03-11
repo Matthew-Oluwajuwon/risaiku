@@ -64,26 +64,26 @@ const Dashboard = () => {
             horizontal
           />
         </View>
-        <View className="flex-row justify-center gap-5 items-center my-2 mb-7">
+        <View className="flex-row justify-center gap-5 items-center my-2 mb-5">
           <View className={`h-2 w-8 ${distanceFromEnd === 0 ? "bg-[#007A7280]" : "bg-[#007A72]"} rounded-full`} />
           <View className={`h-2 w-8 ${distanceFromEnd === 0 ? "bg-[#007A72]" : "bg-[#007A7280]"} rounded-full`} />
         </View>
-        <View className="w-full mt-4 flex-row gap-3 flex-wrap justify-between mx-auto">
-          <View className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]">
+        <View className="w-full flex-row flex-wrap justify-between mx-auto">
+          <View className="basis-[46%] mb-5 relative h-40 bg-[#FFF9CC] rounded-[25px]">
             <Image source={require("../../assets/images/yellow.png")} className="absolute right-3 top-3" />
             <Text className="text-[#D4BA00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Pick up</Text>
           </View>
-          <View className="basis-[46%] relative h-40 bg-[#E5F5CC] rounded-[25px]">
+          <View className="basis-[46%] mb-5 relative h-40 bg-[#E5F5CC] rounded-[25px]">
             <Image source={require("../../assets/images/green.png")} className="absolute right-3 top-3" />
             <Text className="text-[#6AAC00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Drop off</Text>
           </View>
-          <View className="basis-[46%] relative h-40 bg-[#D9ECFF] rounded-[25px]">
+          <View className="basis-[46%] mb-5 relative h-40 bg-[#D9ECFF] rounded-[25px]">
             <Image source={require("../../assets/images/blue.png")} className="absolute right-3 top-3" />
-            <Text  className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-20">Zero waste Store</Text>
+            <Text className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-20">Zero waste Store</Text>
           </View>
-          <View className="basis-[46%] relative h-40 bg-[#FCD9CC] rounded-[25px]">
+          <View className="basis-[46%] mb-5 relative h-40 bg-[#FCD9CC] rounded-[25px]">
             <Image source={require("../../assets/images/red.png")} className="absolute right-3 top-3" />
-            <Text  className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-20">Waste Management</Text>
+            <Text className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-20">Waste Management</Text>
           </View>
         </View>
       </ScrollView>
