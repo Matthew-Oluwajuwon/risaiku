@@ -57,7 +57,7 @@ const Login = ({ navigation }) => {
                 />
               </View>
             </View>
-            <TouchableOpacity className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}>
+            <TouchableOpacity onPress={() => onNavigate("AuthTabs")} className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}>
               <Text className="text-[#ffffff!important] text-base font-medium">Sign in</Text>
             </TouchableOpacity>
           </View>

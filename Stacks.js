@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SceneWrapper, Welcome } from "./screens/GetStarted";
 import { Dashboard, Login, OtpVerification, OtpVerificationSuccess, Signup } from "./screens";
+import { AuthTabs } from "./AuthTabs";
 
 const Stack = createNativeStackNavigator();
 
@@ -53,8 +54,8 @@ const Stacks = () => {
           }}
         />
         <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
+          name="AuthTabs"
+          component={AuthTabs}
           options={{
             headerShown: false,
           }}
