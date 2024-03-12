@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Account, Dashboard, Notifications, Report } from "./screens";
+import { Account, Home, Notifications, Report } from "./screens";
 import { Ionicons } from "@expo/vector-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator();
+const HomeStack = createNativeStackNavigator();
 
 export function AuthTabs() {
   return (
@@ -20,8 +22,9 @@ export function AuthTabs() {
           tabBarIcon: ({ size, focused }) => <Ionicons name="home" color={focused ? "#007A72" : "#C4C4C4"} size={size} />,
           headerShown: false,
         }}
-        component={Dashboard}
+        component={Home}
       />
+        
       <Tab.Screen
         name="Report"
         options={{

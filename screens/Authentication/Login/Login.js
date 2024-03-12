@@ -4,12 +4,26 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { TextInput } from "react-native-paper";
 import KeyboadAvoidingContainer from "../../../components/KeyboadAvoidingContainer/KeyboadAvoidingContainer";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllAppKeys } from "../../../store";
 
 const Login = ({ navigation }) => {
+  const dispatch = useDispatch()
+  const state = useSelector(state => {
+    return state.app
+  })
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const onNavigate = (path) => {
     navigation.navigate(path);
   };
+  
+  const onChangeCurrentStep = (screen) => {
+    onNavigate(screen)
+    dispatch(setAllAppKeys({
+      ...state,
+      current: 0
+    }))
+  }
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -69,7 +83,7 @@ const Login = ({ navigation }) => {
               </View>
             </View>
             <TouchableOpacity
-              onPress={() => onNavigate("AuthTabs")}
+              onPress={() => onChangeCurrentStep("AuthTabs")}
               className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}
             >
               <Text className="text-[#ffffff!important] text-base font-medium">

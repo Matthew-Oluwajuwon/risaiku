@@ -9,11 +9,13 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import useNavigate from "../../hooks/useNavigate";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllAppKeys } from "../../store";
+import useChangeCurrent from "../../hooks/useChangeCurrent";
 
-const Dashboard = ({ navigation }) => {
-  const { onNavigate } = useNavigate(navigation);
-
+const Dashboard = () => {
+  const onChangeCurrentStep = useChangeCurrent()
+  
   const DATA = [
     {
       id: "1",
@@ -102,10 +104,9 @@ const Dashboard = ({ navigation }) => {
         </View>
         <View className="w-full mt-4 flex-row gap-3 flex-wrap justify-between mx-auto">
           <TouchableOpacity
-            onPress={() => onNavigate("ScheduleApickup")}
+            onPress={() => onChangeCurrentStep(1)}
             className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]"
           >
-            {/* <View className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]"> */}
               <Image
                 source={require("../../assets/images/yellow.png")}
                 className="absolute right-3 top-3"
@@ -113,7 +114,6 @@ const Dashboard = ({ navigation }) => {
               <Text className="text-[#D4BA00] font-semibold text-base absolute bottom-5 left-5 w-20">
                 Schedule a Pick up
               </Text>
-            {/* </View> */}
           </TouchableOpacity>
           <View className="basis-[46%] relative h-40 bg-[#E5F5CC] rounded-[25px]">
             <Image
