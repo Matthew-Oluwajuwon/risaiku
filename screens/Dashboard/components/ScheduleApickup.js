@@ -1,7 +1,7 @@
-import { View, Text, TouchableOpacity, Picker, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
 import { TextInput } from "react-native-paper";
 
 const ScheduleApickup = ({ navigation }) => {
@@ -9,12 +9,15 @@ const ScheduleApickup = ({ navigation }) => {
     <SafeAreaView className="flex-1 bg-white px-5 mt-2">
       <View className=" flex flex-row items-center gap-16">
         <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Image source={require("../../../assets/icons/back-arrow.png")} />
+          <Image source={require("../../../assets/icons/back-arrow.png")} />
         </TouchableOpacity>
         <Text className="font-semibold mt-2">Schedule Pickup</Text>
       </View>
       <View>
-        {/* <Picker></Picker> */}
+        <Picker mode="dropdown">
+          <Picker.Item label="Java" value="java" />
+          <Picker.Item label="JavaScript" value="js" />
+        </Picker>
       </View>
       <Text className="font-semibold mt-2 text-[#007A72]">Waste Category</Text>
       <Text className="font-medium mt-2 text-[#007A72]">Number of Bags</Text>
@@ -31,9 +34,7 @@ const ScheduleApickup = ({ navigation }) => {
           outlineStyle={{ borderWidth: 0, borderRadius: 10 }}
         />
       </View>
-      <Text className="font-semibold mt-2 text-[#007A72]">
-        Extra Information
-      </Text>
+      <Text className="font-semibold mt-2 text-[#007A72]">Extra Information</Text>
       <View>
         <TextInput
           underlineColor="#007a721a"
