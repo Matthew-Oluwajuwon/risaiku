@@ -21,7 +21,7 @@ const ScheduleApickup = () => {
   return (
     <SafeAreaView className="flex-1 bg-white px-5 mt-2">
       <KeyboadAvoidingContainer>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
           <View className="flex-row items-center justify-center relative my-3">
             <TouchableOpacity onPress={() => onChangeCurrentStep(0)} className="absolute left-0 ">
               <Image source={require("../../../assets/icons/back-arrow.png")} />
