@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Picker } from "react-native";
+import { View, Text, TouchableOpacity, Picker, Image } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
@@ -7,9 +7,9 @@ import { TextInput } from "react-native-paper";
 const ScheduleApickup = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-white px-5 mt-2">
-      <View className=" flex flex-row items-center gap-16 ">
+      <View className=" flex flex-row items-center gap-16">
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="backspace" />
+        <Image source={require("../../../assets/icons/back-arrow.png")} />
         </TouchableOpacity>
         <Text className="font-semibold mt-2">Schedule Pickup</Text>
       </View>
