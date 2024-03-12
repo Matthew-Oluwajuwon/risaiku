@@ -30,7 +30,7 @@ const ScheduleApickup = () => {
           </View>
           <View className="mb-5">
             <Text className="font-semibold mt-2 text-[#007A72]">Waste Category</Text>
-            <View className="border border-[#c4c4c4] rounded-[10px] mt-2 h-16">
+            <View className="border border-[#c4c4c4] rounded-[10px] mt-2 h-14 p-4">
               <RNPickerSelect
                 onValueChange={(value) => onChangeText("wasteCategory", value)}
                 value={state.request?.wasteCategory}
