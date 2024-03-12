@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput } from "react-native-paper";
@@ -20,20 +20,33 @@ const ScheduleApickup = () => {
   return (
     <SafeAreaView className="flex-1 bg-white px-5 mt-2">
       <KeyboadAvoidingContainer>
-        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
           <View className="flex-row items-center justify-center relative my-3">
-            <TouchableOpacity onPress={() => onChangeCurrentStep(0)} className="absolute left-0 ">
+            <TouchableOpacity
+              onPress={() => onChangeCurrentStep(0)}
+              className="absolute left-0 "
+            >
               <Image source={require("../../../assets/icons/back-arrow.png")} />
             </TouchableOpacity>
             <Text className="font-semibold text-base">Schedule Pick up</Text>
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">Waste Category</Text>
-            <View className={`border border-[#c4c4c4] rounded-[10px] mt-2 ${Platform.OS === 'ios' && "h-14 p-2 flex-row items-center"}`}>
+            <Text className="font-semibold mt-2 text-[#007A72]">
+              Waste Category
+            </Text>
+            <View
+              className={`border border-[#c4c4c4] rounded-[10px] mt-2 ${
+                Platform.OS === "ios" && "h-14 pl-4 pt-4 flex-row items-center"
+              }`}
+            >
               <RNPickerSelect
                 onValueChange={(value) => onChangeText("wasteCategory", value)}
                 value={state.request?.wasteCategory}
                 modalProps={{}}
+                style={{ width: 100 }}
                 items={[
                   { label: "Football", value: "football" },
                   { label: "Baseball", value: "baseball" },
@@ -43,7 +56,9 @@ const ScheduleApickup = () => {
             </View>
           </View>
           <View className="mb-5">
-            <Text className="font-medium mt-2 text-[#007A72]">Number of Bags</Text>
+            <Text className="font-medium mt-2 text-[#007A72]">
+              Number of Bags
+            </Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -53,11 +68,18 @@ const ScheduleApickup = () => {
               outlineColor="#007a721a"
               label="Please indicate the number of bags"
               activeOutlineColor="#007a721a"
-              outlineStyle={{ borderWidth: 1, borderRadius: 10, borderColor: "#c4c4c4", backgroundColor: "#ffffff" }}
+              outlineStyle={{
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: "#c4c4c4",
+                backgroundColor: "#ffffff",
+              }}
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">Extra Information</Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">
+              Extra Information
+            </Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -67,11 +89,18 @@ const ScheduleApickup = () => {
               outlineColor="#007a721a"
               label="Extra information"
               activeOutlineColor="#007a721a"
-              outlineStyle={{ borderWidth: 1, borderRadius: 10, borderColor: "#c4c4c4", backgroundColor: "#ffffff" }}
+              outlineStyle={{
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: "#c4c4c4",
+                backgroundColor: "#ffffff",
+              }}
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">Pick up address</Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">
+              Pick up address
+            </Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -81,11 +110,18 @@ const ScheduleApickup = () => {
               outlineColor="#007a721a"
               label="Please enter your pick up address"
               activeOutlineColor="#007a721a"
-              outlineStyle={{ borderWidth: 1, borderRadius: 10, borderColor: "#c4c4c4", backgroundColor: "#ffffff" }}
+              outlineStyle={{
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: "#c4c4c4",
+                backgroundColor: "#ffffff",
+              }}
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">Pick up date</Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">
+              Pick up date
+            </Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -95,11 +131,18 @@ const ScheduleApickup = () => {
               outlineColor="#007a721a"
               label="Pick up date"
               activeOutlineColor="#007a721a"
-              outlineStyle={{ borderWidth: 1, borderRadius: 10, borderColor: "#c4c4c4", backgroundColor: "#ffffff" }}
+              outlineStyle={{
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: "#c4c4c4",
+                backgroundColor: "#ffffff",
+              }}
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">Pick up time</Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">
+              Pick up time
+            </Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -109,7 +152,12 @@ const ScheduleApickup = () => {
               outlineColor="#007a721a"
               label="Pick up time"
               activeOutlineColor="#007a721a"
-              outlineStyle={{ borderWidth: 1, borderRadius: 10, borderColor: "#c4c4c4", backgroundColor: "#ffffff" }}
+              outlineStyle={{
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: "#c4c4c4",
+                backgroundColor: "#ffffff",
+              }}
             />
           </View>
         </ScrollView>
