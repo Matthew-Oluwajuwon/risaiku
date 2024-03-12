@@ -1,5 +1,7 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
+import RNPickerSelect from 'react-native-picker-select';
+
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInput } from "react-native-paper";
@@ -9,7 +11,7 @@ import { StatusBar } from "expo-status-bar";
 import KeyboadAvoidingContainer from "../../../components/KeyboadAvoidingContainer/KeyboadAvoidingContainer";
 import useChangeCurrent from "../../../hooks/useChangeCurrent";
 
-const ScheduleApickup = ({ navigation }) => {
+const ScheduleApickup = () => {
   const state = useSelector((state) => {
     return state.app;
   });
@@ -29,10 +31,19 @@ const ScheduleApickup = ({ navigation }) => {
           <View className="mb-5">
             <Text className="font-semibold mt-2 text-[#007A72]">Waste Category</Text>
             <View className="border border-[#c4c4c4] rounded-[10px] mt-2">
-              <Picker mode="dropdown" selectedValue={state.request?.wasteCategory} onValueChange={(e) => onChangeText("wasteCategory", e)}>
+              {/* <Picker mode="dropdown" selectedValue={state.request?.wasteCategory} onValueChange={(e) => onChangeText("wasteCategory", e)}>
                 <Picker.Item label="Java" value="java" />
                 <Picker.Item label="JavaScript" value="js" />
-              </Picker>
+              </Picker> */}
+              <RNPickerSelect
+            onValueChange={(value) => console.log(value)}
+            modalProps={{}}
+            items={[
+                { label: 'Football', value: 'football' },
+                { label: 'Baseball', value: 'baseball' },
+                { label: 'Hockey', value: 'hockey' },
+            ]}
+        />
             </View>
           </View>
           <View className="mb-5">
