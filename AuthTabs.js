@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Dashboard } from "./screens";
+import { Account, Dashboard, Notifications, Report } from "./screens";
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
@@ -28,7 +28,7 @@ export function AuthTabs() {
           tabBarIcon: ({ focused, size }) => <Ionicons name="videocam" color={focused ? "#007A72" : "#C4C4C4"} size={size} />,
           headerShown: false,
         }}
-        component={Dashboard}
+        component={Report}
       />
       <Tab.Screen
         name="Notifications"
@@ -36,7 +36,7 @@ export function AuthTabs() {
           tabBarIcon: ({ focused, size }) => <Ionicons name="notifications" color={focused ? "#007A72" : "#C4C4C4"} size={size} />,
           headerShown: false,
         }}
-        component={Dashboard}
+        component={Notifications}
       />
       <Tab.Screen
         name="Account"
@@ -44,7 +44,7 @@ export function AuthTabs() {
           tabBarIcon: ({ focused, size }) => <Ionicons name="person-circle-outline" color={focused ? "#007A72" : "#C4C4C4"} size={size} />,
           headerShown: false,
         }}
-        component={Dashboard}
+        component={Account}
       />
     </Tab.Navigator>
   );

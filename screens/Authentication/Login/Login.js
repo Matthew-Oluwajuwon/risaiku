@@ -16,13 +16,20 @@ const Login = ({ navigation }) => {
       <KeyboadAvoidingContainer>
         <ScrollView className="w-full flex-1">
           <View className="flex-row items-center w-full justify-center my-10 relative">
-            <TouchableOpacity onPress={() => navigation.goBack()} className="absolute left-3">
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              className="absolute left-3"
+            >
               <Image source={require("../../../assets/icons/back-arrow.png")} />
             </TouchableOpacity>
-            <Image source={require("../../../assets/images/colored-logo.png")} />
+            <Image
+              source={require("../../../assets/images/colored-logo.png")}
+            />
           </View>
           <View className="my-10 w-full">
-            <Text className="text-center font-medium text-3xl">Welcome back</Text>
+            <Text className="text-center font-medium text-3xl">
+              Welcome back
+            </Text>
           </View>
           <View className="w-full px-3 items-center">
             <View className="w-full gap-5">
@@ -52,25 +59,41 @@ const Login = ({ navigation }) => {
                   activeOutlineColor="#007a721a"
                   outlineStyle={{ borderWidth: 0, borderRadius: 10 }}
                   right={
-                    <TextInput.Icon icon={isPasswordShown ? "eye-outline" : "eye-off-outline"} color="#33333350" onPress={() => setIsPasswordShown(!isPasswordShown)} />
+                    <TextInput.Icon
+                      icon={isPasswordShown ? "eye-outline" : "eye-off-outline"}
+                      color="#33333350"
+                      onPress={() => setIsPasswordShown(!isPasswordShown)}
+                    />
                   }
                 />
               </View>
             </View>
-            <TouchableOpacity onPress={() => onNavigate("AuthTabs")} className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}>
-              <Text className="text-[#ffffff!important] text-base font-medium">Sign in</Text>
+            <TouchableOpacity
+              onPress={() => onNavigate("AuthTabs")}
+              className={`bg-[#007A72] w-[95%] mt-10 rounded-full p-4 items-center`}
+            >
+              <Text className="text-[#ffffff!important] text-base font-medium">
+                Sign in
+              </Text>
             </TouchableOpacity>
           </View>
           <View className="items-center">
-          <TouchableOpacity className="mt-16" onPress={() => onNavigate("ForgotPassword")}>
-            <Text className="text-[#007A72] font-medium text-base">Forgot Password?</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="mt-16" onPress={() => onNavigate("Signup")}>
-            <Text className="font-medium text-base">
-              No account? <Text className="text-[#007A72] ">Create one</Text>
-            </Text>
-          </TouchableOpacity>
-            
+            <TouchableOpacity
+              className="mt-16"
+              onPress={() => onNavigate("ForgotPassword")}
+            >
+              <Text className="text-[#007A72] font-medium text-base">
+                Forgot Password?
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="mt-16"
+              onPress={() => onNavigate("Signup")}
+            >
+              <Text className="font-medium text-base">
+                No account? <Text className="text-[#007A72] ">Create one</Text>
+              </Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </KeyboadAvoidingContainer>

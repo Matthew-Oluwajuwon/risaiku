@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SceneWrapper, Welcome } from "./screens/GetStarted";
 import { Dashboard, Login, OtpVerification, OtpVerificationSuccess, Signup } from "./screens";
 import { AuthTabs } from "./AuthTabs";
+import ScheduleApickup from "./screens/Dashboard/components/ScheduleApickup";
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,13 @@ const Stacks = () => {
         <Stack.Screen
           name="AuthTabs"
           component={AuthTabs}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ScheduleApickup"
+          component={ScheduleApickup}
           options={{
             headerShown: false,
           }}
