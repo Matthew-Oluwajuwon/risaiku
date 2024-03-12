@@ -84,10 +84,10 @@ const Dashboard = () => {
             <Image source={require("../../assets/images/yellow.png")} className="absolute right-3 top-3" />
             <Text className="text-[#D4BA00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Pick up</Text>
           </TouchableOpacity>
-          <View className="basis-[46%] relative h-40 bg-[#E5F5CC] rounded-[25px]">
+          <TouchableOpacity onPress={() => onChangeCurrentStep(2)} className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]">
             <Image source={require("../../assets/images/green.png")} className="absolute right-3 top-3" />
             <Text className="text-[#6AAC00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Drop off</Text>
-          </View>
+          </TouchableOpacity>
           <View className="basis-[46%] relative h-40 bg-[#D9ECFF] rounded-[25px]">
             <Image source={require("../../assets/images/blue.png")} className="absolute right-3 top-3" />
             <Text className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-20">Zero waste Store</Text>

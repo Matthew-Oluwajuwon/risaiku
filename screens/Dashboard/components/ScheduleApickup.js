@@ -20,28 +20,16 @@ const ScheduleApickup = () => {
   return (
     <SafeAreaView className="flex-1 bg-white px-5 mt-2">
       <KeyboadAvoidingContainer>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-        >
+        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
           <View className="flex-row items-center justify-center relative my-3">
-            <TouchableOpacity
-              onPress={() => onChangeCurrentStep(0)}
-              className="absolute left-0 "
-            >
+            <TouchableOpacity onPress={() => onChangeCurrentStep(0)} className="absolute left-0 ">
               <Image source={require("../../../assets/icons/back-arrow.png")} />
             </TouchableOpacity>
-            <Text className="font-semibold text-base">Schedule Pick up</Text>
+            <Text className="font-semibold text-base">{state.current === 1 ? "Schedule Pick up" : "Schedule Drop off"}</Text>
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">
-              Waste Category
-            </Text>
-            <View
-              className={`border border-[#c4c4c4] rounded-[10px] mt-2 ${
-                Platform.OS === "ios" && "h-14 pl-4 pt-4 flex-row items-center"
-              }`}
-            >
+            <Text className="font-semibold mt-2 text-[#007A72]">Waste Category</Text>
+            <View className={`border border-[#c4c4c4] rounded-[10px] mt-2 ${Platform.OS === "ios" && "h-14 pl-4 pt-4 flex-row items-center"}`}>
               <RNPickerSelect
                 onValueChange={(value) => onChangeText("wasteCategory", value)}
                 value={state.request?.wasteCategory}
@@ -56,9 +44,7 @@ const ScheduleApickup = () => {
             </View>
           </View>
           <View className="mb-5">
-            <Text className="font-medium mt-2 text-[#007A72]">
-              Number of Bags
-            </Text>
+            <Text className="font-medium mt-2 text-[#007A72]">Number of Bags</Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -77,9 +63,7 @@ const ScheduleApickup = () => {
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">
-              Extra Information
-            </Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">Extra Information</Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -98,9 +82,7 @@ const ScheduleApickup = () => {
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">
-              Pick up address
-            </Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">Pick up address</Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -119,9 +101,7 @@ const ScheduleApickup = () => {
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">
-              Pick up date
-            </Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">Pick up date</Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"
@@ -140,9 +120,7 @@ const ScheduleApickup = () => {
             />
           </View>
           <View className="mb-5">
-            <Text className="font-semibold mt-2 text-[#007A72]">
-              Pick up time
-            </Text>
+            <Text className="font-semibold mt-2 text-[#007A72]">Pick up time</Text>
             <TextInput
               underlineColor="#007a721a"
               mode="outlined"

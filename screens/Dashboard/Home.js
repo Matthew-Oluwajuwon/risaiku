@@ -18,6 +18,10 @@ const Home = () => {
       title: "ScheduleApickup",
       Component: <ScheduleApickup />,
     },
+    {
+      title: "ScheduleAdropoff",
+      Component: <ScheduleApickup />,
+    },
   ];
   return <View className="flex-1">{steps[state.current].Component}</View>;
 };
