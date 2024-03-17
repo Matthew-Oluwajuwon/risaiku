@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, Animated, Easing } from "react-native";
+import { View, Text, Image, Pressable, Animated, Easing } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
@@ -41,12 +41,12 @@ const Welcome = ({ navigation }) => {
         <Text className="text-[#007A72] font-bold text-4xl mb-3"> on the go.</Text>
       </View>
       <View className="gap-5 px-4">
-        <TouchableOpacity onPress={() => onNavigate("Signup")} className={`bg-[#007A72] rounded-full p-4 items-center `}>
+        <Pressable onPress={() => onNavigate("Signup")} className={`bg-[#007A72] rounded-full p-4 items-center `}>
           <Text className="text-[#ffffff!important] text-base font-medium">Create an account</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => onNavigate("Login")} className={`border-2 border-[#007A72] rounded-full p-3 items-center `}>
+        </Pressable>
+        <Pressable onPress={() => onNavigate("Login")} className={`border-2 border-[#007A72] rounded-full p-3 items-center `}>
           <Text className="text-[#007A72!important] text-base font-medium">Sign in</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
       <View className="justify-end flex-1 relative">
         <Animated.Image style={{ transform: [{ rotate: rotateAnimation }] }} source={require("../../assets/images/welcome-image1.png")} className="absolute -bottom-48" />

@@ -4,10 +4,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SceneWrapper, Welcome } from "./screens/GetStarted";
 import { Login, OtpVerification, OtpVerificationSuccess, Signup } from "./screens";
 import { AuthTabs } from "./AuthTabs";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createNativeStackNavigator();
+const ProtectedStack = createNativeStackNavigator();
 
 const Stacks = () => {
+   
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -61,8 +64,17 @@ const Stacks = () => {
           }}
         />
       </Stack.Navigator>
+      {/* <ProtectedStack.Navigator>
+        <Stack.Screen
+          name="AuthTabs"
+          component={AuthTabs}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </ProtectedStack.Navigator> */}
     </NavigationContainer>
   );
-};
+}; 
 
 export default Stacks;

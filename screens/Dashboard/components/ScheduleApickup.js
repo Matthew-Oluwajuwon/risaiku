@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Text, Pressable, Image, ScrollView } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { Platform } from "react-native";
 import React from "react";
@@ -18,13 +18,13 @@ const ScheduleApickup = () => {
   const onChangeCurrentStep = useChangeCurrent();
 
   return (
-    <SafeAreaView className="flex-1 bg-white px-5 mt-2">
+    <SafeAreaView className="flex-1 bg-white px-5">
       <KeyboadAvoidingContainer>
         <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
           <View className="flex-row items-center justify-center relative my-3">
-            <TouchableOpacity onPress={() => onChangeCurrentStep(0)} className="absolute left-0 ">
+            <Pressable onPress={() => onChangeCurrentStep(0)} className="absolute left-0 ">
               <Image source={require("../../../assets/icons/back-arrow.png")} />
-            </TouchableOpacity>
+            </Pressable>
             <Text className="font-semibold text-base">{state.current === 1 ? "Schedule Pick up" : "Schedule Drop off"}</Text>
           </View>
           <View className="mb-5">

@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, Image, FlatList, ScrollView, Pressable } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
@@ -23,8 +23,8 @@ const Dashboard = () => {
   const [distanceFromEnd, setDistanceFromEnd] = useState(1);
   const Item = ({ src, id }) => (
     <View className="relative w-72">
-      <Image source={src} className="absolute top-0 left-0 w-full rounded-lg" />
-      <View className="absolute bottom-50  w-full items-center translate-y-7">
+      <Image source={src} className="absolute top-0 left-0 w-full rounded-[15px]" />
+      <View className="absolute bottom-50 w-full items-center translate-y-7">
         {id === "1" ? (
           <View className="gap-4">
             <Text className="text-white font-medium text-xl">
@@ -65,7 +65,7 @@ const Dashboard = () => {
             contentContainerStyle={{
               flexDirection: "row",
               gap: 15,
-              position: "relative",
+              position: "relative"
             }}
             onEndReached={({ distanceFromEnd }) => {
               setDistanceFromEnd(distanceFromEnd);
@@ -79,22 +79,22 @@ const Dashboard = () => {
           <View className={`h-2 w-8 ${distanceFromEnd === 0 ? "bg-[#007A7280]" : "bg-[#007A72]"} rounded-full`} />
           <View className={`h-2 w-8 ${distanceFromEnd === 0 ? "bg-[#007A72]" : "bg-[#007A7280]"} rounded-full`} />
         </View>
-        <View className="w-full mt-4 flex-row gap-3 flex-wrap justify-between mx-auto">
-          <TouchableOpacity onPress={() => onChangeCurrentStep(1)} className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]">
+        <View className="w-full flex-row flex-wrap items-stretch justify-between">
+          <Pressable onPress={() => onChangeCurrentStep(1)} className="basis-[46%] mb-6 flex-2 relative h-40 bg-[#FFF9CC] rounded-[25px]">
             <Image source={require("../../assets/images/yellow.png")} className="absolute right-3 top-3" />
             <Text className="text-[#D4BA00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Pick up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => onChangeCurrentStep(2)} className="basis-[46%] relative h-40 bg-[#FFF9CC] rounded-[25px]">
+          </Pressable>
+          <Pressable onPress={() => onChangeCurrentStep(2)} className="basis-[46%] mb-6 flex-2 relative h-40 bg-[#E5F5CC] rounded-[25px]">
             <Image source={require("../../assets/images/green.png")} className="absolute right-3 top-3" />
             <Text className="text-[#6AAC00] font-semibold text-base absolute bottom-5 left-5 w-20">Schedule a Drop off</Text>
-          </TouchableOpacity>
-          <View className="basis-[46%] relative h-40 bg-[#D9ECFF] rounded-[25px]">
+          </Pressable>
+          <View className="basis-[46%] mb-6 flex-2 relative h-40 bg-[#D9ECFF] rounded-[25px]">
             <Image source={require("../../assets/images/blue.png")} className="absolute right-3 top-3" />
             <Text className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-20">Zero waste Store</Text>
           </View>
-          <View className="basis-[46%] relative h-40 bg-[#FCD9CC] rounded-[25px]">
+          <View className="basis-[46%] mb-6 flex-2 relative h-40 bg-[#FCD9CC] rounded-[25px]">
             <Image source={require("../../assets/images/red.png")} className="absolute right-3 top-3" />
-            <Text className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-20">Waste Management</Text>
+            <Text className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-24">Waste Management</Text>
           </View>
         </View>
       </ScrollView>

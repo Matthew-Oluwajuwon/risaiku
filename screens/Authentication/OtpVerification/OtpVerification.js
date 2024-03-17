@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Text, Pressable, Image, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SmoothPinCodeInput from "react-native-smooth-pincode-input";
@@ -17,9 +17,9 @@ const OtpVerification = ({ navigation }) => {
       <KeyboadAvoidingContainer>
         <ScrollView className="flex-1 w-full">
           <View className="flex-row items-center w-full justify-center my-10 relative">
-            <TouchableOpacity onPress={() => navigation.goBack()} className="absolute left-3">
+            <Pressable onPress={() => navigation.goBack()} className="absolute left-3">
               <Image source={require("../../../assets/icons/back-arrow.png")} />
-            </TouchableOpacity>
+            </Pressable>
           </View>
           <View className="items-center gap-5 mt-20">
             <Text className="text-2xl font-medium text-[#333333]">Verify your Phone Number</Text>
@@ -56,12 +56,12 @@ const OtpVerification = ({ navigation }) => {
               onFulfill={this._checkCode}
               onBackspace={this._focusePrevInput}
             />
-            <TouchableOpacity>
+            <Pressable>
               <Text className="text-center underline mt-7 text-[14px] font-medium">Didn’t receive a code?</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("OtpVerificationSuccess")} className={`bg-[#007A72] mt-10 rounded-full p-4 items-center`}>
+            </Pressable>
+            <Pressable onPress={() => navigation.navigate("OtpVerificationSuccess")} className={`bg-[#007A72] mt-10 rounded-full p-4 items-center`}>
               <Text className="text-[#ffffff!important] text-base font-medium">Done</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </ScrollView>
       </KeyboadAvoidingContainer>

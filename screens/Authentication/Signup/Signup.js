@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Image, Text, ScrollView } from "react-native";
+import { View, Pressable, Image, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { TextInput, Checkbox } from "react-native-paper";
@@ -16,9 +16,9 @@ const Signup = ({ navigation }) => {
       <KeyboadAvoidingContainer>
         <ScrollView className="w-full flex-1">
           <View className="flex-row items-center w-full justify-center my-10 relative">
-            <TouchableOpacity onPress={() => navigation.goBack()} className="absolute left-3">
+            <Pressable onPress={() => navigation.goBack()} className="absolute left-3">
               <Image source={require("../../../assets/icons/back-arrow.png")} />
-            </TouchableOpacity>
+            </Pressable>
             <Image source={require("../../../assets/images/colored-logo.png")} />
           </View>
           <View className="mb-5">
@@ -91,17 +91,17 @@ const Signup = ({ navigation }) => {
                 </Text>
               </View>
               <View className="flex-row w-full">
-                <TouchableOpacity onPress={() => onNavigate("OtpVerification")} className={`bg-[#007A72] w-full mt-5 rounded-full p-4 items-center`}>
+                <Pressable onPress={() => onNavigate("OtpVerification")} className={`bg-[#007A72] w-full mt-5 rounded-full p-4 items-center`}>
                   <Text className="text-[#ffffff!important] text-base font-medium">Sign up</Text>
-                </TouchableOpacity>
+                </Pressable>
               </View>
             </View>
           </View>
-          <TouchableOpacity className="mt-8 items-center" onPress={() => onNavigate("Login")}>
+          <Pressable className="mt-8 items-center" onPress={() => onNavigate("Login")}>
             <Text className="font-medium text-base">
               Already have an account? <Text className="text-[#007A72]">Sign in</Text>
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </ScrollView>
       </KeyboadAvoidingContainer>
       <StatusBar backgroundColor="transparent" />
