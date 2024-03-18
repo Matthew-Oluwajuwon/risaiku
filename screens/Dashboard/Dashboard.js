@@ -90,11 +90,11 @@ const Dashboard = () => {
           </Pressable>
           <View className="basis-[46%] mb-6 flex-2 relative h-40 bg-[#D9ECFF] rounded-[25px]">
             <Image source={require("../../assets/images/blue.png")} className="absolute right-3 top-3" />
-            <Text className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-20">Zero waste Store</Text>
+            <Text className="text-[#3684D4] font-semibold text-base absolute bottom-5 left-5 w-28">Zero waste Store</Text>
           </View>
           <View className="basis-[46%] mb-6 flex-2 relative h-40 bg-[#FCD9CC] rounded-[25px]">
             <Image source={require("../../assets/images/red.png")} className="absolute right-3 top-3" />
-            <Text className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-24">Waste Management</Text>
+            <Text className="text-[#C73500] font-semibold text-base absolute bottom-5 left-5 w-28">Waste Management</Text>
           </View>
         </View>
       </ScrollView>
